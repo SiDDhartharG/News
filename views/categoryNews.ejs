@@ -1,0 +1,102 @@
+<%- include('header') -%>
+
+  <body>
+    <!-- NAVBAR -->
+    <%- include('navBar') -%>
+      <% var length=categorizedNews.length %>
+
+        <!--SLIDER-->
+
+        <div class="row mx-1">
+          <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <ol class="carousel-indicators">
+              <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+              <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+              <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+              <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
+              <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></li>
+              <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"></li>
+            </ol>
+            <div class="carousel-inner">
+
+              <% for(var i=0; i < 6; i++) { %>
+                <div class="carousel-item <%if(i==0){%>active<%}%> " onclick="location.href = '<%= categorizedNews[i].url %>';">
+                  <img src='<%= categorizedNews[i].urlToImage %>' class="d-block" style="height: 80vh;width: 100vw;"
+                    alt="No Picture">
+                  <div class="carousel-caption ">
+                    <h2>
+                      <%= categorizedNews[i].title %>
+                    </h2>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+            <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </a>
+          </div>
+        </div>
+
+        <!--BODY-->
+        <div class="row mt-3 mx-3 border border-danger">
+          <!--main Body-->
+          <div class="col-md-8 col-xs-12  ">
+            <div class="row">
+              <% for(var i=6; i < length; i++) { %>
+                <div class="col-12 ">
+                  <div class="card my-2 border border-danger">
+                    <div class="row g-0">
+                      <div class="col-sm-4">
+                        <img src='<%= categorizedNews[i].urlToImage %>' style="width: 100%; height: 100%;"
+                          onerror="this.src='/Image/News.jpg'">
+                      </div>
+                      <div class="col-sm-8">
+                        <div class="card-body">
+                          <h5 class="card-title">
+                            <%= categorizedNews[i].title %>
+                          </h5>
+                          <p class="card-text">
+                            <%= categorizedNews[i].description %>
+                          </p>
+                          <a href="<%= categorizedNews[i].url %>" style="text-decoration: none;color: black;"><i
+                              class='far fa-file-alt' style='font-size:24px'></i><u>Full News</u></a>
+                          <p class="card-text"><small class="text-muted">
+                              <sub>
+                                <%= categorizedNews[i].publishedAt %>
+                              </sub>
+                            </small></p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <% } %>
+            </div>
+          </div>
+          <!--topNews-->
+          <div class="d-none d-md-block col-md-4 border border-danger border-end-0 border-bottom-0 border-top-0">
+            <div class='text-center bg-danger text-white pb-1'>
+              <h3><b>Top News</b></h3>
+            </div>
+            <% for(var i=0; i < 10; i++) { %>
+              <a  onclick="location.href = '<%= headLine[i].url %>';"> <b>
+                  <%= headLine[i].title %>
+                </b> </a>
+              <% if(i!=9){%>
+                <hr style="color: red;">
+                <% }%>
+                  <% } %>
+          </div>
+        </div>
+
+
+        <!--FOOTER-->
+        <%- include('footer') -%>
+  </body>
+
+  </html>

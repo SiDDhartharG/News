@@ -1,0 +1,28 @@
+<%- include('header') -%>
+
+  <body>
+    <div class="container mt-5 pt-5">
+      <div class="row">
+        <div class="col-4 offset-4 border border-success rounded p-4">
+          <form class="text-center m-3" action="/news/login" method="POST">
+            <h1 class="pb-4">Login System</h1>
+            <div class="mb-3">
+              <input type="email" class="form-control" name="email" placeholder="Email">
+            </div>
+            <div class="mb-3">
+              <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <div class="mb-3 text-start">
+              <a href="/signin">New here...</a><br>
+            </div>
+            <div class="mb-3 pt-4">
+              <button type="submit" class="btn btn-success rounded-pill">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+  </html>

@@ -1,0 +1,206 @@
+<%- include('header') -%>
+  <body style="font-weight: bold;">
+    <!-- NAVBAR -->
+    <%- include('navBar') -%>
+      <!--SLIDER-->
+      <div class="row mx-1">
+        <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4"></li>
+            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="5"></li>
+          </ol>
+          <div class="carousel-inner">
+
+            <% for(var i=0; i < 6; i++) { %>
+              <div class="carousel-item <%if(i==0){%>active<%}%>">
+                <img src='<%= headLine[i].urlToImage %>' onclick="location.href = '<%= headLine[i].url %>';" class="d-block" style="height: 80vh;width: 100vw;"
+                  alt="No Picture">
+                <div class="carousel-caption ">
+                  <h2>
+                    <%= headLine[i].title %>
+                  </h2>
+                </div>
+              </div>
+              <% } %>
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+
+      <!--BODY-->
+      <div class="row mt-3 mx-3 border border-danger">
+        <!--main Body-->
+        <div class="col-md-8 col-xs-12  ">
+          <div class="row m-2">
+            <div class="card border border-danger " onclick="location.href = '<%= headLine[16].url %>';">
+              <img src="<%= headLine[16].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+              <div class="card-body">
+                <h3 class="card-title">
+                  <b>
+                    <%= headLine[16].title %>
+                  </b>
+                </h3>
+              </div>
+            </div>
+          </div>
+          <div class="row m-1">
+            <div class="card-group">
+              <div class="card border border-danger m-1" onclick="location.href = '<%= headLine[17].url %>';">
+                <img src="<%= headLine[17].urlToImage %>" class="card-img-top rounded" onerror="this.src='/Image/News.jpg'">
+                <div class="card-body">
+                  <h5 class="card-title" >
+                    <%= headLine[17].title %>
+                  </h5>
+                </div>
+              </div>
+              <div class="card border border-danger m-1" onclick="location.href = '<%= headLine[18].url %>';">
+                <img src="<%= headLine[18].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                <div class="card-body">
+                  <h5 class="card-title" onclick="location.href = '<%= headLine[18].url %>';">
+                    <%= headLine[18].title %>
+                  </h5>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--diff category News-->
+          <div class='row m-1'>
+            <div class="card-group">
+              <div class="card border border-danger m-1">
+                <div class='text-center bg-danger text-white'><i class="fas fa-building fa-2x"></i><h3><b>Business</b></h3></div>
+                <img src="<%= business[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                <ul class="list-group list-group-flush">
+                  <% for(var i=0; i < 5; i++) { %>
+                    <li class="list-group-item" onclick="location.href = '<%= business[i].url %>';">
+                      <%= business[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+              </div>
+              <div class="card border border-danger m-1">
+                <div class='text-center bg-danger text-white'><i class="fas fa-globe fa-2x "></i><h3><b>World</b></h3></div>
+                <img src="<%= world[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                <ul class="list-group list-group-flush">
+                  <% for(var i=0; i < 5; i++) { %>
+                    <li class="list-group-item" onclick="location.href = '<%= world[i].url %>';">
+                      <%= world[i].title %>
+                    </li>
+                    <% } %>
+                </ul>
+              </div>
+            </div>
+          </div>
+            <div class='row m-1'>
+              <div class="card-group">
+                <div class="card border border-danger m-1">
+                  <div class='text-center bg-danger text-white'><i class="fas fa-newspaper fa-2x"></i><h3><b>General</b></h3></div>
+                  <img src="<%= general[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                  <ul class="list-group list-group-flush">
+                    <% for(var i=0; i < 5; i++) { %>
+                      <li class="list-group-item" onclick="location.href = '<%= general[i].url %>';">
+                        <%= general[i].title %>
+                      </li>
+                      <% } %>
+                  </ul>
+                </div>
+                <div class="card border border-danger m-1">
+                  <div class='text-center bg-danger text-white'><i class="fas fa-icons fa-2x"></i><h3><b>Entertainment</b></h3></div>
+                  <img src="<%= entertainment[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                  <ul class="list-group list-group-flush">
+                    <% for(var i=0; i < 5; i++) { %>
+                      <li class="list-group-item" onclick="location.href = '<%= entertainment[i].url %>';">
+                        <%= entertainment[i].title %>
+                      </li>
+                      <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class='row m-1'>
+              <div class="card-group">
+                <div class="card border border-danger m-1">
+                  <div class='text-center bg-danger text-white'><i class="fas fa-lightbulb fa-2x"></i><h3><b>Technology</b></h3></div>
+                  <img src="<%= technology[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                  <ul class="list-group list-group-flush">
+                    <% for(var i=0; i < 5; i++) { %>
+                      <li class="list-group-item" onclick="location.href = '<%= technology[i].url %>';">
+                        <%= technology[i].title %>
+                      </li>
+                      <% } %>
+                  </ul>
+                </div>
+                <div class="card border border-danger m-1">
+                  <div class='text-center bg-danger text-white'><i class="fas fa-futbol fa-2x"></i><h3><b>Sports</b></h3></div>
+                  <img src="<%= sports[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                  <ul class="list-group list-group-flush">
+                    <% for(var i=0; i < 5; i++) { %>
+                      <li class="list-group-item" onclick="location.href = '<%= sports[i].url %>';">
+                        <%= sports[i].title %>
+                      </li>
+                      <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class='row m-1'>
+              <div class="card-group">
+                <div class="card border border-danger m-1">
+                  <div class='text-center bg-danger text-white'><i class="fas fa-heartbeat fa-2x"></i><h3><b>Health</b></h3></div>
+                  <img src="<%= health[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                  <ul class="list-group list-group-flush">
+                    <% for(var i=0; i < 5; i++) { %>
+                      <li class="list-group-item"  onclick="location.href = '<%= health[i].url %>';">
+                        <%= health[i].title %>
+                      </li>
+                      <% } %>
+                  </ul>
+                </div>
+                <div class="card border border-danger m-1">
+                  <div class='text-center bg-danger text-white'><i class="fas fa-atom fa-2x"></i><h3><b>Science</b></h3></div>
+                  <img src="<%= science[0].urlToImage %>" class="card-img-top" onerror="this.src='/Image/News.jpg'">
+                  <ul class="list-group list-group-flush">
+                    <% for(var i=0; i < 5; i++) { %>
+                      <li class="list-group-item"  onclick="location.href = '<%= science[i].url %>';">
+                        <%= science[i].title %>
+                      </li>
+                      <% } %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+        </div>
+        <!--topNews-->
+        <div class="d-none d-md-block col-md-4 border border-danger border-end-0 border-bottom-0 border-top-0">
+          <div class='text-center bg-danger text-white pb-1'><h3><b>Top News</b></h3></div>
+          <% for(var i=6; i < 16; i++) { %>
+            <a onclick="location.href = '<%= headLine[i].url %>';"> <b>
+                <%= headLine[i].title %>
+              </b> </a>
+            <% if(i!=15){%>
+              <hr style="color: red;">
+              <% }%>
+                <% } %>
+        </div>
+      </div>
+
+
+      <!--FOOTER-->
+      <%- include('footer') -%>
+
+
+
+  </body>
+
+  </html>
